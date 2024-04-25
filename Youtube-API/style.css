@@ -1,0 +1,100 @@
+ul {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+
+li {
+  list-style: none;
+  margin: 10px;
+}
+
+.btns li svg,
+.btns li {
+  width: 70px;
+}
+iframe {
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10vh;
+  margin-bottom: 10px;
+}
+
+#dopause {
+  display: none;
+}
+
+select {
+  display: inline;
+}
+
+form {
+  display: inline;
+  padding-bottom: 10px;
+}
+
+h2 {
+  font-weight: normal;
+  font-size: 18px;
+  overflow: hidden;
+}
+
+aside {
+  margin-top: 10vh;
+  height: 90vh;
+  width: 45%;
+  float: right;
+  display: flex;
+  flex-direction: column;
+}
+
+section {
+  width: 50%;
+  float: left;
+  overflow: scroll;
+}
+
+body {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100vh;
+}
+
+.video {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.videos {
+  width: 100%;
+}
+
+.ytDescription {
+  font-size: 10px;
+  color: #333;
+}
+.ytChannel {
+  font-size: 14px;
+  color: #ff00ff;
+}
+
+.ytThumb {
+  width: 25%;
+}
+
+.ytText {
+  width: 73%;
+}
+
+.ytTitle {
+  font-weight: bold;
+  font-size: 20px;
+}
