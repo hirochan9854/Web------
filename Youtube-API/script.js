@@ -113,7 +113,7 @@ function playSpeed(num) {
 
 // 2. 変数tagにscriptタグを作って入れる。Element=要素、Attrubute=属性
 var tag = document.createElement("script");
-let youtubeId = "ixg-bJxY5gY";
+let youtubeId = "riUrD3JqFm0";
 
 tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName("script")[0];
@@ -216,4 +216,4 @@ ytSearchBtn.addEventListener("click", function (e) {
   e.preventDefault(); //検索ボタンの送信をストップしておく。
 });
 
-ytSearch();
+ytSearch("OkiyamaFoodService");
