@@ -30,7 +30,7 @@ function onPlayerReady(event) {
 }
 
 function ytSearch(val) {
-  const key = "AIzaSyA1cclG0S9eqgupefVFaGaXWltxFnFx464";
+  const key = "AIzaSyAYYnASIlMMkFKmy1ol1fRQfvmurQ-xBoU";
   const num = 10;
   const part = "snippet";
   const type = "video";
