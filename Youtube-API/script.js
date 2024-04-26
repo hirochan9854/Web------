@@ -216,4 +216,4 @@ ytSearchBtn.addEventListener("click", function (e) {
   e.preventDefault(); //検索ボタンの送信をストップしておく。
 });
 
-ytSearch("ザコシショウ");
+ytSearch("UNISON SQUARE GARDEN");
