@@ -1,3 +1,7 @@
+let youtubeTitle;
+let youtubeChannel;
+let youtubeDescription;
+
 function onYouTubeIframeAPIReady() {
   player = new YT.Player("player", {
     height: "360",
@@ -26,16 +30,16 @@ function onPlayerReady(event) {
 }
 
 function ytSearch(val) {
-  const key = "AIzaSyBBQ0KbPhmc6a_TYM5ka-kcP5iuhjF4s9o";
-  const num = 100;
+  const key = "AIzaSyA1cclG0S9eqgupefVFaGaXWltxFnFx464";
+  const num = 1000;
   const part = "snippet";
   const type = "video";
   const query = val;
   const selectvideo = document.querySelector(".videos");
-  const ytId = [];
-  const ytTitle = [];
-  const ytDescription = [];
-  const ytChannel = [];
+  let ytId = [];
+  let ytTitle = [];
+  let ytDescription = [];
+  let ytChannel = [];
   fetch(
     `https://www.googleapis.com/youtube/v3/search?type=${type}&part=${part}&maxResults=${num}&key=${key}&q=${query}&playsinline=1`
   )
@@ -43,37 +47,28 @@ function ytSearch(val) {
     .then((obj) => {
       selectvideo.innerHTML = "";
       for (let i in obj["items"]) {
-        //各videoIdとタイトルを取得して変数に代入
+        // 各videoIdとタイトルを取得して変数に代入
         ytId[i] = obj["items"][i]["id"]["videoId"];
         ytTitle[i] = obj["items"][i]["snippet"]["title"];
         ytDescription[i] = obj["items"][i]["snippet"]["description"];
         ytChannel[i] = obj["items"][i]["snippet"]["channelTitle"];
         const ytThumb =
           obj["items"][i]["snippet"]["thumbnails"]["medium"]["url"];
-        selectvideo.innerHTML =
-          selectvideo.innerHTML +
-          `<div class="video"><img class="ytThumb" src="${ytThumb}"><dl class="ytText"><dt>${ytTitle}</dt><dd class="ytChannel">${ytChannel}</dt><dd class="ytDescription">${ytDescription}</dd></dl</div>`;
-        const ytVideo = document.querySelector(".videos");
+        selectvideo.innerHTML += `<div class="video"><img class="ytThumb" src="${ytThumb}"><dl class="ytText"><dt>${ytTitle[i]}</dt><dd class="ytChannel">${ytChannel[i]}</dt><dd class="ytDescription">${ytDescription[i]}</dd></dl></div>`;
       }
-    });
-  const video = document.querySelectorAll(".video");
-  console.log(video);
-  console.log(ytId[0]);
-  for (let i = 0; i < video.length; i++) {
-    video[i].addEventListener("click", function () {
-      console.log(i);
-      youtubeId = ytId[i];
-      youtubeTitle = ytTitle[i];
-      youtubeChannel = ytChannel[i];
-      youtubeDescription = ytDescription[i];
 
-      console.log(youtubeTitle);
-      console.log(i);
-      player.destroy();
-
-      onYouTubeIframeAPIReady();
+      let video = document.querySelectorAll(".video");
+      video.forEach((elem, i) => {
+        elem.addEventListener("click", function () {
+          youtubeId = ytId[i];
+          youtubeTitle = ytTitle[i];
+          youtubeChannel = ytChannel[i];
+          youtubeDescription = ytDescription[i];
+          player.destroy();
+          onYouTubeIframeAPIReady();
+        });
+      });
     });
-  }
 }
 
 //停止関数
